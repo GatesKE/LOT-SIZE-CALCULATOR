@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOT SIZE CALCULATOR WITH COMMISSION INTERGRATION</title>
+    <title>Lot Size Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Lot Size Calculator With Commission Intergration</h1>
+        <form method="POST" action="/calculate">
+            <label for="risk_amount">Risk Amount in Dollars:</label>
+            <input type="text" id="risk_amount" name="risk_amount" required><br><br>
+            
+            <label for="commission_per_lot">Broker's Commission per Lot (in Dollars):</label>
+            <input type="text" id="commission_per_lot" name="commission_per_lot" required><br><br>
+            
+            <label for="sl_size">SL Size (in Pips):</label>
+            <input type="text" id="sl_size" name="sl_size" required><br><br>
+            
+            <button type="submit">Calculate Lot Size</button>
+            
+            {% if lot_size is not none %}
+         <h2>Calculated Lot Size: {{ lot_size }}</h2>
+         {% endif %}
+        </form>
+        
+        
+    </div>
 </body>
 </html>
