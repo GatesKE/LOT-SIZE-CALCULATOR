@@ -1,5 +1,5 @@
-runtime: python38  # or another supported version
-entrypoint: gunicorn -b :$PORT app:app
+runtime: python311  # or another supported version
+entrypoint: gunicorn -b :$PORT main:app
 
 handlers:
 - url: /static

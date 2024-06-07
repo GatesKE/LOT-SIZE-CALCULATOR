@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='template')
 
 def calculate_lot_size(risk_amount, commission_per_lot, sl_size):
 
@@ -16,7 +16,7 @@ def calculate_lot_size(risk_amount, commission_per_lot, sl_size):
 
 def index():
 
-    return render_template('index.html')
+    return render_template('index.html', lot_size=None)
 
 @app.route('/calculate', methods=['POST'])
 
