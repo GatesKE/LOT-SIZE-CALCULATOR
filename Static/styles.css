@@ -1,28 +1,33 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('image2.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('image2.jpg');
+    background-size:cover;
     margin: 0;
-    padding: 0;
+    padding: 5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+
+} 
 
 .container {
     width: 400px;
-    padding: 20px;
+    padding: 50px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: rgb(223, 209, 132);
     text-align: center;
+
     
 }
-
+::placeholder{
+    color: rgb(199, 197, 197);
+  font-style: italic;
+}
 h1 {
     color: #333;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 form {
