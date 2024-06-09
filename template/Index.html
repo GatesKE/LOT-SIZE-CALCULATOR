@@ -14,25 +14,39 @@
         <form method="POST" action="/calculate">
 
             <label for="risk_amount">Risk Amount in Dollars:</label>
-            <input placeholder="e.g 100" type="text" id="risk_amount" name="risk_amount" required>
+            <input placeholder="e.g 100" type="text" id="risk_amount" name="risk_amount" value="{{ form_data.get('risk_amount', '') }}" required>
             
             
             <label for="commission_per_lot">Broker's Commission per Lot (in Dollars):</label>
-            <input placeholder="e.g 5, Input '0' to neglect" type="text" id="commission_per_lot" name="commission_per_lot" required>
+            <input placeholder="e.g 5, Input '0' to neglect" type="text" id="commission_per_lot" name="commission_per_lot" value="{{ form_data.get('commission_per_lot', '') }}" required>
             
             <label for="sl_size">SL Size (in Pips):</label>
-            <input placeholder="e.g. 5" type="text" id="sl_size" name="sl_size" required>
+            <input placeholder="e.g. 5" type="text" id="sl_size" name="sl_size" value="{{ form_data.get('sl_size', '') }}" required>
 
             {% if lot_size is not none %}
             <div class="result-box">
-            Calculated Lot Size: {{ lot_size }}
+            <h2>Lot Size: {{ lot_size }}</h2>
          </div>
          {% endif %}
 
-            <button type="submit">Calculate Lot Size</button>
+            <button type="submit" id="submit" >Calculate Lot Size</button>
+
+            <button class="clearButton"  type="button" id="clearButton">Clear</button>
         </form>
         
         
-    </div>
+    </div> 
+
+    <script>
+            document.getElementById('clearButton').addEventListener('click', function()
+             {
+                document.getElementById('risk_amount').value = '';
+                document.getElementById('commission_per_lot').value = '';
+                document.getElementById('sl_size').value = '';
+            });
+            
+       
+       
+    </script>
 </body>
 </html>
